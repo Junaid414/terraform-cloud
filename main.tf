@@ -1,5 +1,5 @@
 resource "aws_instance" "webserver" { 
-    ami = "ami-02bfcfbf6fc7e8ce4"
+    ami = "ami-0b8b44ec9a8f90422"
     instance_type = "t2.micro"
     tags = {
       name= "nginx Server"
@@ -27,10 +27,6 @@ resource "aws_key_pair" "ssh" {
   
 }
 
-resource "local_file" "ssh-key" {
-  filename = "/home/junaid/Downloads/ssh-key"
-  content = tls_private_key.ssh.private_key_openssh
-}
 
 
 resource "aws_security_group" "ssh-access" {
@@ -65,7 +61,7 @@ output "publicip" {
   value = aws_instance.webserver.public_ip
 }
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-2"
   secret_key = var.secret_key
   access_key = var.access_key
 }
