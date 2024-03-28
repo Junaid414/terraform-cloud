@@ -64,3 +64,8 @@ resource "aws_security_group" "ssh-access" {
 output "publicip" {
   value = aws_instance.webserver.public_ip
 }
+provider "aws" {
+  region = "us-east-1"
+  secret_key = var.secret_key
+  access_key = var.access_key
+}
