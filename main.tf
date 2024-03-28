@@ -61,7 +61,7 @@ output "publicip" {
   value = aws_instance.webserver.public_ip
 }
 provider "aws" {
-  region = "us-east-2"
+  region = var.region
   secret_key = var.secret_key
   access_key = var.access_key
 }
